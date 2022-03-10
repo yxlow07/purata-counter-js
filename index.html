@@ -13,7 +13,7 @@
 <body class="d-flex h-100 text-center text-white bg-dark">
     <div class="container p-5">
         <div class="align-content-md-center mb-3 text-capitalize fw-bolder text-wrap fs-3">
-            <span class="badge btn-success btn">Your Purata: <span id="purata">100</span> </span>
+            <span class="badge btn-success btn" id="purata-badge">Your Purata: <span id="purata"></span> </span>
         </div>
         <table class="table table-dark table-striped table-hover table-bordered">
             <thead>
@@ -23,21 +23,11 @@
                     <th scope="col">Your marks</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">Chinese</th>
-                    <td>7</td>
-                    <td>
-                        <label><input type="number" name="chn" min="0" max="100" class="form-control wide marks" placeholder="Marks"></label>
-                    </td>
-                </tr>
-            </tbody>
+            <tbody id="tbody"></tbody>
         </table>
 
-        <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
-
         <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-            <div id="liveToast" class="toast align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+            <div id="errorToast" class="toast align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
                 <div class="d-flex">
                     <div class="toast-body">
                         Value should be 0 to 100

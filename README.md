@@ -13,7 +13,7 @@
 - Added function to give an estimate of how much the remaining subjects must get in order to reach target given by user
 - Optimised objects by merging marks and pemberat together
 - Round off purata to three decimal places
-- Colored the purata, red is failed and green is passed
+- Colored the purata, red = failed and green = passed
 
 **Version 2.0.1**
 - Added color for target, green = doable / yellow = very hard but sure / red = impossible / blue = target too low already passed
@@ -28,3 +28,9 @@
 
 **Version 2.0.3**
 - Fixed bug where 0 marks does not count
+
+**Version 3.0**
+- Migrated from python to HTML CSS JS
+- Basic functionality established
+- Features yet to be added: 
+    - Target calculator
