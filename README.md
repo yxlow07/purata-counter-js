@@ -34,3 +34,7 @@
 - Basic functionality established
 - Features yet to be added: 
     - Target calculator
+
+**Bug Patch 3.0.1**
+- Fixed bug where deleting value in input does not change purata / display incorrect value
+- Fixed bug where after displaying value exceed error purata remains incorrect with previous input

@@ -46,8 +46,9 @@ $(document).ready( (event) => {
         if (0 <= intMarks && intMarks <= 100) {
             marksAndPemberat[name][1] = intMarks
         } else if (marks === "") {
-            // Do nothing
+            marksAndPemberat[name][1] = "x"
         } else {
+            marksAndPemberat[name][1] = "x"
             showValueExceedError($("#errorToast"))
             console.log("Error")
             $(this).val("")
