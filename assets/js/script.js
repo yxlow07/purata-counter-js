@@ -1,4 +1,4 @@
-marksAndPemberat = { chinese: [7, "x"], bm: [6, "x"], eng: [5, "x"], mm:  [5, "x"], sc:  [5, "x"], "rbt/ask":  [4, "x"], sjh:  [3, "x"], geo:  [3, "x"], cocurriculum : [3, "x"], /* moral: [3, "x"], PJK: [2, "x"], seni: [2, "x"] */}
+let marksAndPemberat = { chinese: [7, "x"], bm: [6, "x"], eng: [5, "x"], mm:  [5, "x"], sc:  [5, "x"], "rbt/ask":  [4, "x"], sjh:  [3, "x"], geo:  [3, "x"], cocurriculum : [3, "x"], /* moral: [3, "x"], PJK: [2, "x"], seni: [2, "x"] */}
 let errorToastCounter = 0
 let actualTotalPemberat = 0
 
