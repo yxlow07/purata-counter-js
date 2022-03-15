@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Primary Meta Tags -->
-    <title>Purata Calculator for CLHS students</title>
+    <title>Purata Calculator</title>
     <meta name="title" content="Purata Calculator for CLHS students">
     <meta name="description" content="Lazy of inputting everything into your calculator? Well you could do that here without a single click! Just input your results and leave the rest to us">
 
@@ -14,7 +14,7 @@
     <meta property="og:url" content="https://purata-counter-js.herokuapp.com/">
     <meta property="og:title" content="Purata Calculator for CLHS students">
     <meta property="og:description" content="Lazy of inputting everything into your calculator? Well you could do that here without a single click! Just input your results and leave the rest to us">
-    <meta property="og:image" content="./assets/pics/home.png">
+    <meta property="og:image" content="https://purata-counter-js.herokuapp.com/assets/pics/home.png">
     <meta name="theme-color" content="#E0E0E0">
 
     <!-- Twitter -->
@@ -22,7 +22,7 @@
     <meta property="twitter:url" content="https://purata-counter-js.herokuapp.com/">
     <meta property="twitter:title" content="Purata Calculator for CLHS students">
     <meta property="twitter:description" content="Lazy of inputting everything into your calculator? Well you could do that here without a single click! Just input your results and leave the rest to us">
-    <meta property="twitter:image" content="./assets/pics/home.png">
+    <meta property="twitter:image" content="https://purata-counter-js.herokuapp.com/assets/pics/home.png">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
