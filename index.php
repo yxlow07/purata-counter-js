@@ -31,7 +31,24 @@
     <link rel="shortcut icon" href="assets/pics/favicon.ico" type="image/x-icon">
     <title>Purata Calculator</title>
 </head>
-<body class="d-flex h-100 text-center text-white bg-dark">
+<body class="h-100 text-center text-white bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="text-black fw-bolder d-flex">
+                <img src="./assets/pics/favicon.ico" alt="Icon" width="30px" class="d-inline-block align-text-top">
+                Purata Calculator
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-3 fw-bolder">
+                    <a class="nav-link" aria-current="page" href="credits.php">Credits</a>
+                    <a class="nav-link" href="https://github.com/yxlow07/purata-counter-js" target="_blank">Source</a>
+                </div>
+            </div>
+        </div>
+    </nav>
     <div class="container p-5">
         <div class="main row align-content-start">
             <div class="col">
