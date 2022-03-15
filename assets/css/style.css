@@ -5,9 +5,9 @@
     }
 }
 
-body {
-    zoom: 0.8;
-    -moz-transform: scale(0.9);
+.table {
+    zoom: 0.6;
+    -moz-transform: scale(0.6);
     -moz-transform-origin: 0 0;
 }
 
@@ -38,4 +38,9 @@ input[type=number] {
     background-color: aliceblue;
     color: black;
     cursor: pointer;
+}
+
+.outline-white:hover {
+    background-color: #414141;
+    color: aliceblue;
 }

@@ -1,5 +1,6 @@
-let marksAndPemberat = { chinese: [7, "x"], bm: [6, "x"], eng: [5, "x"], mm:  [5, "x"], sc:  [5, "x"], "rbt/ask":  [4, "x"], sjh:  [3, "x"], geo:  [3, "x"], cocurriculum : [3, "x"],}
+marksAndPemberat = { chinese: [7, "x"], bm: [6, "x"], eng: [5, "x"], mm:  [5, "x"], sc:  [5, "x"], "rbt/ask":  [4, "x"], sjh:  [3, "x"], geo:  [3, "x"], cocurriculum : [3, "x"], /* moral: [3, "x"], PJK: [2, "x"], seni: [2, "x"] */}
 let errorToastCounter = 0
+let actualTotalPemberat = 0
 
 function showValueExceedError(msg) {
     errorToastCounter += 1
@@ -15,6 +16,7 @@ function showValueExceedError(msg) {
 for (const subject in marksAndPemberat){
     let pemberat = marksAndPemberat[subject][0]
     $("#tbody").append(`<tr> <th scope="row" class="text-capitalize">${subject}</th> <td>${pemberat}</td><td> <label><input type="number" name="${subject}" min="0" max="100" class="form-control wide marks"></label> </td></tr>`)
+    actualTotalPemberat += pemberat
 }
 
 function calculatePurata() {
@@ -30,32 +32,38 @@ function calculatePurata() {
         }
     }
 
-    return [totalMarksWithPemberat / totalPemberat, totalMarksWithPemberat, totalPemberat]
+    return [totalMarksWithPemberat / totalPemberat, totalMarksWithPemberat, totalPemberat, actualTotalPemberat - totalPemberat]
 }
 
 function updatePurata(purata) {
-    let roundedPurata = Math.round((purata + Number.EPSILON) * 1000) / 1000
+    let roundedPurata = Math.round((purata + Number.EPSILON) * 100) / 100
     if (roundedPurata < 60){
-        if ($('#purata-badge').hasClass("btn-success"))
-            $("#purata-badge").addClass("btn-danger").removeClass("btn-success")
+        $("#purata-badge").addClass("btn-danger").removeClass("btn-success btn-primary")
     } else {
-        if ($('#purata-badge').hasClass("btn-danger"))
-            $("#purata-badge").removeClass("btn-danger").addClass("btn-success")
+        if (roundedPurata >= 90) {
+            $("#purata-badge").addClass("btn-primary").removeClass("btn-success btn-danger")
+        } else {
+            $("#purata-badge").addClass("btn-success").removeClass("btn-danger btn-primary")
+        }
     }
     $("#purata").html(roundedPurata)
 }
 
 function validateMarksAndUpdate(subject, marks) {
-    if (0 <= marks && marks <= 100) {
-        marksAndPemberat[subject][1] = marks
-    } else if (marks === "") {
-        marksAndPemberat[subject][1] = "x"
-    } else {
-        marksAndPemberat[subject][1] = "x"
-        showValueExceedError("Value must be between 0 and 100")
-        $(`[name=${subject}]`).val("")
+    try {
+        if (0 <= marks && marks <= 100) {
+            marksAndPemberat[subject][1] = marks
+        } else if (marks === "") {
+            marksAndPemberat[subject][1] = "x"
+        } else {
+            marksAndPemberat[subject][1] = "x"
+            showValueExceedError("Value must be between 0 and 100")
+            $(`[name=${subject}]`).val("")
+        }
+        updatePurata(calculatePurata()[0])
+    } catch (e) {
+        // Do nothing hide the error from user-....
     }
-    updatePurata(calculatePurata()[0])
 }
 
 $(document).ready( () => {
@@ -65,6 +73,7 @@ $(document).ready( () => {
         validateMarksAndUpdate(name, marks)
     })
 
+
     $('.col.outline-white').on("mousedown", function (event) {
         event.preventDefault()
         let id = $(this).attr('id')
@@ -72,11 +81,11 @@ $(document).ready( () => {
         if (id !== "-"){
             let focused = $('input:focus')
             let focusedName = focused.attr('name') === undefined ? "none" : focused.attr('name')
-            let focusedNameSelector = "[name=" + focusedName + "]"
+            let focusedNameSelector = "[name='" + focusedName + "']"
             let focusedVal = $(focusedNameSelector).val()
-            let marks = parseInt(focusedVal.toString() + id)
 
             if (focusedName !== "none" && id !== "<-") {
+                let marks = parseInt(focusedVal.toString() + id)
                 $(focusedNameSelector).val(marks)
             } else if (id === "<-") {
                 if (focusedVal < 10) {
