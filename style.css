@@ -1,14 +1,15 @@
-/*body {*/
-/*    background-image: url("./lise.jpeg");*/
-/*    background-repeat: no-repeat;*/
-/*    background-size: cover;*/
-/*    background-position: center;*/
-/*    opacity: 0.5;*/
-/*}*/
+/* Smartphones ----------- */
+@media only screen and (max-width: 1000px) {
+    .keypad {
+        display: none;
+    }
+}
 
-/*.table {*/
-/*    opacity: 3;*/
-/*}*/
+body {
+    zoom: 0.8;
+    -moz-transform: scale(0.9);
+    -moz-transform-origin: 0 0;
+}
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -30,4 +31,11 @@ input[type=number] {
 
 #purata-badge {
     pointer-events: none;
+}
+
+.outline-white {
+    border: gray 1px solid;
+    background-color: aliceblue;
+    color: black;
+    cursor: pointer;
 }

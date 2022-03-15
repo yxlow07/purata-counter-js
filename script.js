@@ -1,7 +1,14 @@
 let marksAndPemberat = { chinese: [7, "x"], bm: [6, "x"], eng: [5, "x"], mm:  [5, "x"], sc:  [5, "x"], "rbt/ask":  [4, "x"], sjh:  [3, "x"], geo:  [3, "x"], cocurriculum : [3, "x"],}
+let errorToastCounter = 0
 
-function showValueExceedError(errorToast) {
-    let toast = new bootstrap.Toast(errorToast)
+function showValueExceedError(msg) {
+    errorToastCounter += 1
+    let id = "et" + errorToastCounter
+    let errorToast = `<div class="position-fixed bottom-0 end-0 p-3" style="1"> <div id="${id}" class="toast text-white bg-danger border-0 d-flex" data-bs-delay="5000" role="alert" aria-live="assertive" aria-atomic="true"> <div class="toast-body"> ${msg} </div> <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button></div> </div>`
+
+    $('.err').append(errorToast)
+
+    let toast = new bootstrap.Toast($(`#${id}`))
     toast.show()
 }
 
@@ -38,29 +45,47 @@ function updatePurata(purata) {
     $("#purata").html(roundedPurata)
 }
 
-$(document).ready( (event) => {
+function validateMarksAndUpdate(subject, marks) {
+    if (0 <= marks && marks <= 100) {
+        marksAndPemberat[subject][1] = marks
+    } else if (marks === "") {
+        marksAndPemberat[subject][1] = "x"
+    } else {
+        marksAndPemberat[subject][1] = "x"
+        showValueExceedError("Value must be between 0 and 100")
+        $(`[name=${subject}]`).val("")
+    }
+    updatePurata(calculatePurata()[0])
+}
+
+$(document).ready( () => {
     $(".marks").on("keyup change", function() {
         let name = $(this).attr('name')
-        let marks = $(this).val()
-        let intMarks = parseInt(marks)
-        if (0 <= intMarks && intMarks <= 100) {
-            marksAndPemberat[name][1] = intMarks
-        } else if (marks === "") {
-            marksAndPemberat[name][1] = "x"
-        } else {
-            marksAndPemberat[name][1] = "x"
-            showValueExceedError($("#errorToast"))
-            console.log("Error")
-            $(this).val("")
-        }
-        let purata = calculatePurata()
-        updatePurata(purata[0])
-        console.log(purata)
+        let marks = parseInt($(this).val())
+        validateMarksAndUpdate(name, marks)
     })
 
-    $("#submit").on("click", () => {
-        let purata = calculatePurata()
-        updatePurata(purata[0])
-        console.log(purata)
+    $('.col.outline-white').on("mousedown", function (event) {
+        event.preventDefault()
+        let id = $(this).attr('id')
+
+        if (id !== "-"){
+            let focused = $('input:focus')
+            let focusedName = focused.attr('name') === undefined ? "none" : focused.attr('name')
+            let focusedNameSelector = "[name=" + focusedName + "]"
+            let focusedVal = $(focusedNameSelector).val()
+            let marks = parseInt(focusedVal.toString() + id)
+
+            if (focusedName !== "none" && id !== "<-") {
+                $(focusedNameSelector).val(marks)
+            } else if (id === "<-") {
+                if (focusedVal < 10) {
+                    $(focusedNameSelector).val("")
+                } else {
+                    $(focusedNameSelector).val(Math.floor(focusedVal / 10))
+                }
+            }
+            validateMarksAndUpdate(focusedName, $(focusedNameSelector).val())
+        }
     })
 })

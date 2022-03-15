@@ -38,3 +38,9 @@
 **Bug Patch 3.0.1**
 - Fixed bug where deleting value in input does not change purata / display incorrect value
 - Fixed bug where after displaying value exceed error purata remains incorrect with previous input
+
+**Final Version Version 3.1**
+- Link preview (meta tags previously missing)
+- Optimised javascript (Functions are extracted)
+- Added keypad feature (Only available for pc users or tablet since phone keyboard will not break some keys)
+- Optimised error toasts for dynamic messages (Caution this also stacks infinitely but so far testing shows no problems)

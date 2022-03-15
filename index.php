@@ -26,13 +26,14 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="assets/pics/favicon.ico" type="image/x-icon">
     <title>Purata Calculator</title>
 </head>
 <body class="d-flex h-100 text-center text-white bg-dark">
     <div class="container p-5">
-        <div class="row align-content-start">
+        <div class="main row align-content-start">
             <div class="col">
                 <div class="align-content-md-center mb-3 text-capitalize fw-bolder text-wrap fs-3">
                 <span class="badge btn-success btn" id="purata-badge">Your Purata: <span id="purata"></span> </span>
@@ -48,40 +49,30 @@
                 <tbody id="tbody"></tbody>
             </table>
             </div>
-            <div class="col align-self-center col-sm-2">
+            <div class="col align-self-center col-sm-2 keypad">
                 <div class="row m-2">
-                    <div class="col outline-white">1</div>
-                    <div class="col outline-white">2</div>
-                    <div class="col outline-white">3</div>
+                    <div id="1" class="col outline-white">1</div>
+                    <div id="2" class="col outline-white">2</div>
+                    <div id="3" class="col outline-white">3</div>
                 </div>
                 <div class="row m-2">
-                    <div class="col outline-white">4</div>
-                    <div class="col outline-white">5</div>
-                    <div class="col outline-white">6</div>
+                    <div id="4" class="col outline-white">4</div>
+                    <div id="5" class="col outline-white">5</div>
+                    <div id="6" class="col outline-white">6</div>
                 </div>
                 <div class="row m-2">
-                    <div class="col outline-white">7</div>
-                    <div class="col outline-white">8</div>
-                    <div class="col outline-white">9</div>
+                    <div id="7" class="col outline-white">7</div>
+                    <div id="8" class="col outline-white">8</div>
+                    <div id="9" class="col outline-white">9</div>
                 </div>
                 <div class="row m-2">
-                    <div class="col outline-white">&nbsp;</div>
-                    <div class="col outline-white">0</div>
-                    <div class="col outline-white">&nbsp;</div>
+                    <div id="-" class="col outline-white">&nbsp;</div>
+                    <div id="0" class="col outline-white">0</div>
+                    <div id="<-" class="col outline-white"><i class="bi bi-arrow-return-left"></i></div>
                 </div>
             </div>
         </div>
-
-        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-            <div id="errorToast" class="toast align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
-                <div class="d-flex">
-                    <div class="toast-body">
-                        Value should be 0 to 100
-                    </div>
-                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-            </div>
-        </div>
+        <div class="err"></div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
