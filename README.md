@@ -44,3 +44,6 @@
 - Optimised javascript (Functions are extracted)
 - Added keypad feature (Only available for pc users or tablet since phone keyboard will not break some keys)
 - Optimised error toasts for dynamic messages (Caution this also stacks infinitely but so far testing shows no problems)
+
+**Version 3.1.1**
+- Fixed "seni" pemberat into 2 instead of 3
